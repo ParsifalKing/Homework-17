@@ -27,13 +27,13 @@ public class CategoryService
     }
     public static List<Category> GetCategoryByDate(DateTime date)
     {
-        var category = categories.FirstOrDefault(e => e.CreatedAt == date);
-        return categories;
+        var category = categories.Where(e => e.CreatedAt == date).ToList();
+        return category;
     }
     public static List<Category> GetCategoryByCategoryId(int id)
     {
-        var category = categories.FirstOrDefault(e => e.Id == id);
-        return categories;
+        var category = categories.Where(e => e.Id == id).ToList();
+        return category;
     }
     public static void DeleteCategory(int id)
     {

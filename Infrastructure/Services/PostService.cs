@@ -5,7 +5,7 @@ namespace Infrastructure.Services;
 public static class PostService
 {
 
-    static List<Post> posts = new List<Post>();
+    public static List<Post> posts = new List<Post>();
 
     public static void CreatePost(Post post)
     {
@@ -27,14 +27,14 @@ public static class PostService
     }
     public static List<Post> GetPostByDate(DateTime date)
     {
-        var post = posts.FirstOrDefault(e => e.CreatedAt == date);
-        return posts;
+        var post = posts.Where(e => e.CreatedAt == date).ToList();
+        return post;
 
     }
     public static List<Post> GetPostByCategoryId(int id)
     {
-        var post = posts.FirstOrDefault(e => e.Id == id);
-        return posts;
+        var post = posts.Where(e => e.Id == id).ToList();
+        return post;
     }
     public static void DeletePost(int id)
     {
